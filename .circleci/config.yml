@@ -32,7 +32,7 @@ jobs:
           name: Setup Google Cloud CLI
           command: |
             echo $GCLOUD_SERVICE_KEY | gcloud auth activate-service-account --key-file=-
-            gcloud --quiet config set project ANGULAR
+            gcloud --quiet config set project spotsale-frontend
             gcloud --quiet config set compute/zone northamerica-northeast1
       - run:
           name: Deploy the app
