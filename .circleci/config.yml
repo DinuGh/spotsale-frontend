@@ -33,7 +33,7 @@ jobs:
           command: |
             echo $GCLOUD_SERVICE_KEY | gcloud auth activate-service-account --key-file=-
             gcloud --quiet config set project spotsale-frontend
-            gcloud --quiet config set compute/zone northamerica-northeast1
+            gcloud --quiet config set compute/zone ${GOOGLE_COMPUTE_ZONE}
       - run:
           name: Deploy the app
           command: |
