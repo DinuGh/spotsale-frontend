@@ -3,7 +3,7 @@
   IDs:         301208156, 301236904, 301251832, 301313468, 301268678
   Description: view for creating and editing a product ad.
  -->
-<div class="container-fluid" >
+ <div class="container-fluid" >
   <app-header [pageTitle]="pageTitle" [editing]="editing"></app-header>
 <form #form="ngForm" novalidate
       (ngSubmit)="submitProduct(form)" class="m-2"  style="min-height: 100vh">
@@ -37,6 +37,14 @@
             [(ngModel)]="product.price" required />
     <span *ngIf="submitted && price.invalid" class="text-danger">
       Please enter the price
+    </span>
+  </div>
+  <div class="form-group">
+    <label>Image URL</label>
+    <input class="form-control" #imageURL="ngModel" name="imageURL"
+            [(ngModel)]="product.imageURL" required />
+    <span *ngIf="submitted && imageURL.invalid" class="text-danger">
+      Please enter the image URL
     </span>
   </div>
   <div class="form-group">

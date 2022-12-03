@@ -1,2 +1,137 @@
 /* You can add global styles to this file, and also import other style files */
 
+h5 {
+    text-align: center;
+}
+
+.container-fluid {
+background-color: rgb(255, 250, 250)
+
+}
+
+.card-text {
+    background-color: rgb(230, 230, 250);
+    
+}
+
+.left-col .image {
+    height: 106px;
+    width: 132px;
+}
+.left-col {
+    float: left;
+    height: 160px;
+    margin: 20px 25px;
+    padding: 0;
+    position: relative;
+    width: 200px;
+}
+div {
+    display: block;
+}
+.right-col {
+    float: right;
+    height: 160px;
+    margin: 20px 25px;
+    padding: 0;
+    position: relative;
+    width: 400px;
+}
+
+.right-col {
+    background-color: #fff;
+    border: solid 1px #8e909b;
+    display: table-cell;
+    height: 160px;
+    padding: 0;
+    text-align: center;
+    vertical-align: middle;
+    width: 400px;
+}
+ .right-col {
+    border: solid #d2d3d7 1px;
+}
+
+.left-col .image {
+    background-color: #fff;
+    border:  1px #8e909b;
+    display: table-cell;
+    height: 160px;
+    padding: 0;
+    text-align: center;
+    vertical-align: middle;
+    width: 200px;
+}
+ .left-col .image {
+    border: solid #d2d3d7 1px;
+}
+
+
+.info {
+    padding-left: 182px;
+}
+
+.info {
+    
+    padding: 18px 15px 0 250px;
+}
+.info .info-container {
+    width: 100%;
+}
+
+.price {
+    color: #1e954e;
+    display: inline-block;
+    float: right;
+    font-size: 22px;
+    font-weight: 700;
+    padding: 0 0 0 30px;
+    width: auto;
+}
+.price {
+    font-weight: 700;
+    padding-right: 10px;
+    text-align: right;
+    width: auto;
+}
+.title {
+    color: #373373;
+    font-size: 16px;
+    line-height: 22px;
+    max-height: 44px;
+}
+.title {
+    font-size: 15px;
+    line-height: 18px;
+    margin: 0 0 10px;
+    max-height: 38px;
+    overflow: hidden;
+    text-decoration: none;
+}
+.title {
+    color: #006;
+    font-weight: 700;
+    color: #2681db;
+    font-weight: 700;
+    line-height: 15px;
+    margin: 15px 0 8px;
+    text-decoration: underline;
+    display: inline;
+}
+.description {
+    color: #3e4153;
+    font-size: 16px;
+    line-height: 22px;
+}
+.description {
+    margin-bottom: 15px;
+    overflow: hidden;
+    padding: 0;
+    display:inline-block; 
+    width: 65vh;
+    white-space:normal;
+    word-wrap:break-word;
+}
+.description {
+    padding: 15px 15px 10px 0;
+}

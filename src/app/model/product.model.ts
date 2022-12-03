@@ -6,7 +6,7 @@ export class Product {
         public title?: string,
         public description?: string,
         public condition?: string,
-        public imageURL?: [string],
+        public imageURL?: string,
         public price?: number,
         public sold?: boolean,
         public enable?: boolean,

@@ -39,12 +39,7 @@ export class ProductDetailComponent {
 
         this.editing = activeRoute.snapshot.params["mode"] == "edit";
 
-        // Edit
-        // if (this.editing) {
-        //     this.product = this.repository.getProduct(activeRoute.snapshot.params["id"]);
-        // }
     }
-
 
     // save(form: NgForm) {
     //     this.repository.saveProduct(this.product);
@@ -57,11 +52,11 @@ export class ProductDetailComponent {
     }
 
     // example of validation to be used in future release
-/*         save(form: NgForm) {
-            this.repository.saveProduct(this.product);
-            this.router.navigateByUrl("/admin/main/products");
-        }
- */
+// /*         save(form: NgForm) {
+//             this.repository.saveProduct(this.product);
+//             this.router.navigateByUrl("/admin/main/products");
+//         }
+//  */
     //Saving (created or adited ad)
     submitProduct(form: NgForm) {
         this.submitted = true;
