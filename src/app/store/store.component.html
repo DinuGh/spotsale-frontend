@@ -28,7 +28,7 @@
         <div *ngIf="product.enable" class="card m-1 p-1 bg-light">
           <h4>
             {{product.title}}
-            <span class="badge badge-pill badge-primary float-right" style="height: 31px;" >
+            <span class="price">
               Price: {{ product.price | currency:"USD":true:"1.2-2" }}
             </span>
             <button *ngIf="belongsToThisSessionUser(product)" class="badge badge-warning align-self-end float-right" style="width: auto; margin-right: 20px; font-size: 18px;"
@@ -36,15 +36,7 @@
             Edit my Ad
           </button>
           </h4>
-          <div class="card-text bg-white p-1">
-             <div class="right-col">
-             <div>Question:
-              <!-- {{product.questionAnswer[0].question}} -->
-            </div>
-              <div>Answer:
-               <!-- {{product.questionAnswer[0].answer}} -->
-             </div>
-            </div>
+          <div class="card-text">
 
              <div class="left-col">
               <div class="image">
@@ -75,7 +67,7 @@
             
             <h4>
               {{product.title}}
-              <span class="badge badge-pill badge-primary float-right" style="height: 31px;" >
+              <span class="price">
                 Price: {{ product.price | currency:"USD":true:"1.2-2" }}
               </span>
               <button *ngIf="belongsToThisSessionUser(product)" class="badge badge-warning align-self-end float-right" style="width: auto; margin-right: 20px; font-size: 18px;"
@@ -84,14 +76,6 @@
             </button>
             </h4>
             <div class="card-text bg-white p-1">
-              <div class="right-col">
-                <div>Question:
-                 <!-- {{product.questionAnswer[0].question}} -->
-               </div>
-                 <div>Answer:
-                  <!-- {{product.questionAnswer[0].answer}} -->
-                </div>
-               </div>
                <div class="left-col">
                 <div class="image">
                   <picture>
