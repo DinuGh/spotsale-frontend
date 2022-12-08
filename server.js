@@ -10,7 +10,7 @@ app.use(logger('dev'));
 app.use(cors());
 app.options('*', cors());
 
-app.use(express.static(__dirname + '/dist')); 
+app.use(express.static(__dirname + '/dist/index.html')); 
 
 // To Angular Router
 app.get('/*', function (req, res) { 
