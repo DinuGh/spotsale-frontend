@@ -113,28 +113,38 @@
     </div>
   </div>
 
-  <br>
-
-  <div *ngFor="let question of product.questionAnswer">
-    <div class="commentl">
-      <p>
-        {{question.question}}
-        <button *ngIf="belongsToThisSessionUser(product)" class="badge badge-warning align-self-end float-right" style="width: auto; margin-right: 20px; font-size: 18px;"
-          [routerLink]="['/product/edit', product._id]">
-            Edit my Ad
-        </button>
-      </p>
+  <div  #btnAddQuestion class="row">
+    <div class="col-12">
+      <button class="btn btn-block btn-outline-primary"  (click)="addQuestion()" style="margin-top: 5px;">
+        New Question
+      </button>
     </div>
-    <div *ngIf="question.answer"  class="commentr">
-      <p>
-        {{question.answer}}
-      </p>
+  </div>
+
+  <div #Q&A>
+    <div *ngFor="let question of product.questionAnswer">
+      <div class="commentl">
+        <p>
+          {{question.question}}
+          <button *ngIf="belongsToThisSessionUser(product)" class="badge badge-warning align-self-end float-right" style="width: auto; margin-right: 20px; font-size: 18px;"
+            [routerLink]="['/product/edit', product._id]">
+              Edit my Ad
+          </button>
+        </p>
+      </div>
+      <div *ngIf="question.answer"  class="commentr">
+        <p>
+          {{question.answer}}
+        </p>
+      </div>
     </div>
   </div>
 </div>
 
 
 
+
 <div style="clear: both;"></div>
 
 <app-footer></app-footer>
+<script src="../../assets/questionAnswer.js"></script>

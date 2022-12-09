@@ -65,6 +65,24 @@ export class ProductRepository {
                 });
         }
     }
+    //__Create and update method
+    async sendQuestion(product: Product) {
+        this.products.splice(this.products.findIndex((element)=>{element._id == product._id}), 1, product);
+        // console.log("Res: " + product.questionAnswer[0].question);
+        this.dataSource.sendQuestion(product._id, product.questionAnswer[0].question)
+            .subscribe(response => {
+                console.log("repo message: " + response.message);
+                console.log("repo success: " + response.message);
+            });
+
+
+
+
+
+        // this.dataSource.updateProduct(product)
+        //     .subscribe(response => {
+        //     });
+    }
     //Delete
     deleteProduct(id: string) {
         this.dataSource.deleteProduct(id).subscribe(p => {

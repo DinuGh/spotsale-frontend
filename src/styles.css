@@ -1,4 +1,8 @@
-/* You can add global styles to this file, and also import other style files */
+/*
+  Title:       SpotSale
+  IDs:         301208156, 301236904, 301251832, 301313468, 301268678
+  Description: Feedback to user form validation
+*/
 
 h5 {
     text-align: center;
@@ -135,3 +139,44 @@ div {
 .description {
     padding: 15px 15px 10px 0;
 }
+
+
+/* comments */
+.commentr {
+    float:right;
+    clear:both;
+    background: #eee;
+    border-radius: 20px;
+    width:60%;
+    padding: 5px;
+  }
+  
+  .commentr p{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-indent: 4%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .commentl {
+    float:left;
+    clear:both;
+    background: #eee;
+    border-radius: 20px;
+    width:60%;
+    margin: 0.1in;
+    padding: 5px;
+  }
+  
+  .commentl p{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-indent: 4%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .send{
+    margin-top: 20px;
+    margin-right: 4%;
+  }
+  

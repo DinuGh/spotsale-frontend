@@ -3,15 +3,10 @@
   IDs:         301208156, 301236904, 301251832, 301313468, 301268678
   Description: view for landing page.
 -->
-
-<link rel="stylesheet" href="/src/styles.css">
-
 <div class="container-fluid"  style="min-height: 100vh">
   <app-header [pageTitle]="title"></app-header>
   <div class="row">
     <div class="col-3 p-2">
-      {{categories.length}} Categories
-
       <button class="btn btn-block btn-outline-primary" (click)="changeCategory()">
         All Categories
       </button>
@@ -22,8 +17,6 @@
       </button>
     </div>
     <div class="col-9 p-2">
-      {{productsQuantity}} Products
-
       <div *ngFor="let product of products">
         <div *ngIf="product.enable" class="card m-1 p-1 bg-light">
           <h4>

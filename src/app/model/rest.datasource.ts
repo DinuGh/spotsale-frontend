@@ -63,6 +63,21 @@ export class RestDataSource {
       catchError(error => { return of(error.error) }));
   }
 
+  sendQuestion(id: string, question: string): Observable<ResponseModel> {
+    console.log("PUT: " + `${this.baseUrl}/qa/add/${id}`);
+
+    return this.http.put<ResponseModel>(
+      `${this.baseUrl}/qa/add/${id}`,
+      {
+        "question": question
+      }
+    ).pipe(map(response => {
+      console.log("message: " + response)
+      return response;
+    }),
+      catchError(error => { return of(error.error) }));
+  }
+
   // updateProduct(product: Product): Observable<Product> {
   //   return this.http.put<Product>(this.baseUrl + "edit/" + product._id, product);
   // }
