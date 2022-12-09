@@ -53,11 +53,12 @@
             <span class="price h3"> 
               {{ product.price | currency:"USD":true:"1.2-2" }}
             </span> 
-            <span>/per kg</span> 
           </p>
           <dl class="item-property">
             <dt>Description</dt>
             <dd><p>{{product.description}}</p></dd>
+            <dt>Category</dt>
+            <dd><p>{{product.category}}</p></dd>
           </dl>
           <!-- <dl class="param param-feature">
             <dt>Model#</dt>
