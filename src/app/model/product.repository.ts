@@ -65,7 +65,7 @@ export class ProductRepository {
                 });
         }
     }
-    //__Create and update method
+    //__Question & Answer
     async sendQuestion(product: Product) {
         this.products.splice(this.products.findIndex((element)=>{element._id == product._id}), 1, product);
         // console.log("Res: " + product.questionAnswer[0].question);
@@ -74,14 +74,15 @@ export class ProductRepository {
                 console.log("repo message: " + response.message);
                 console.log("repo success: " + response.message);
             });
-
-
-
-
-
-        // this.dataSource.updateProduct(product)
-        //     .subscribe(response => {
-        //     });
+    }
+    async sendAnswer(product: Product, questionId: string, answerText: string) {
+        this.products.splice(this.products.findIndex((element)=>{element._id == product._id}), 1, product);
+        // console.log("Res: " + product.questionAnswer[0].question);
+        this.dataSource.sendAnswer(product._id, questionId, answerText)
+            .subscribe(response => {
+                console.log("repo message: " + response.message);
+                console.log("repo success: " + response.message);
+            });
     }
     //Delete
     deleteProduct(id: string) {

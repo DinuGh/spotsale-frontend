@@ -123,13 +123,14 @@
   </div>
 
   <div #Q&A>
-    <div *ngFor="let question of product.questionAnswer">
+    <div *ngFor="let question of product.questionAnswer; let i = index;">
       <div class="commentl">
         <p>
           {{question.question}}
-          <button *ngIf="belongsToThisSessionUser(product)" class="badge badge-warning align-self-end float-right" style="width: auto; margin-right: 20px; font-size: 18px;"
-            [routerLink]="['/product/edit', product._id]">
-              Edit my Ad
+          <!-- <button *ngIf="belongsToThisSessionUser(product)" class="badge badge-warning align-self-end float-right" style="width: auto; margin: 5px;" -->
+          <button *ngIf="question.answer == '' && belongsToThisSessionUser(product)" class="badge badge-warning align-self-end float-right" style="width: auto; margin: 5px;"
+            (click)="answer(i)">
+              Answer
           </button>
         </p>
       </div>

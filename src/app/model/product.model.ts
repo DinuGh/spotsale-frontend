@@ -15,7 +15,7 @@ export class Product {
         public publishedDate?: string,
         public expiryDate?: string,
         public userName?: string,
-        public questionAnswer?: [ {question: string, answer: string} ],
+        public questionAnswer?: [ {question: string, answer: string, _id?: string} ],
         // Adds relationship with User
         public owner?: string
     ) { }
