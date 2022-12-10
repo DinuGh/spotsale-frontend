@@ -11,9 +11,9 @@ export class Product {
         public sold?: boolean,
         public enable?: boolean,
         public deliveryMethod?: string,
-        public creationDate?: string,
-        public publishedDate?: string,
-        public expiryDate?: string,
+        public creationDate?: Date,
+        public publishedDate?: Date,
+        public expiryDate?: Date,
         public userName?: string,
         public questionAnswer?: [ {question: string, answer: string, _id?: string} ],
         // Adds relationship with User

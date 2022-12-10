@@ -19,6 +19,8 @@ export class ProductDetailComponent {
     editing: boolean = false;
     submitted: boolean = false;
     public product: Product = new Product();
+    public expDateValue: string;
+    public currentDate : Date = new Date();
 
     constructor(private repository: ProductRepository,
         private router: Router,
@@ -31,6 +33,8 @@ export class ProductDetailComponent {
         if (this.editing) {
             Object.assign(this.product,
                 repository.getProduct(activeRoute.snapshot.params["id"]));
+                // console.log(new Date(Date.parse(this.product.expiryDate.toString()) - this.currentDate.getTimezoneOffset()*60000).toISOString().slice(0, 16));
+                this.expDateValue = new Date(Date.parse(this.product.expiryDate.toString()) - this.currentDate.getTimezoneOffset()*60000).toISOString().slice(0, 16);
         }
         // Delete
         if (activeRoute.snapshot.params["mode"] == "delete") {
@@ -50,6 +54,7 @@ export class ProductDetailComponent {
     submitProduct(form: NgForm) {
         this.submitted = true;
         if (form.valid) {
+            this.product.expiryDate = new Date(this.expDateValue);
             this.repository.saveProduct(this.product);
             this.router.navigateByUrl("/store");
         }
