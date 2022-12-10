@@ -65,6 +65,7 @@ export class ProductRepository {
                 });
         }
     }
+
     //__Question & Answer
     async sendQuestion(product: Product) {
         this.products.splice(this.products.findIndex((element)=>{element._id == product._id}), 1, product);

@@ -1,33 +1,10 @@
 <!--
   Title:       SpotSale
   IDs:         301208156, 301236904, 301251832, 301313468, 301268678
-  Description: view for creating and editing a product ad.
+  Description: view for visiting an adv.
  -->
  <div class="container-fluid" >
   <app-header [pageTitle]="pageTitle"></app-header>
-  <!-- <form #form="ngForm" novalidate
-        (ngSubmit)="submitProduct(form)" class="m-2"  style="min-height: 100vh">
-    <div>
-              {{product.title}}
-    </div>
-    <div>
-      {{product.category}}
-    </div>
-    <div>
-      {{product.price}}
-    </div>
-    <div class="image">
-      <picture>
-        <img src={{product.imageURL}} width="130vh" height="140vh">
-      </picture>
-    </div>
-    <div>
-      {{product.description}}
-    </div>
-    <div class="text-center">
-      <button class="btn btn-secondary m-1" routerLink="/store">Back</button>
-    </div>
-  </form> -->
   <br>
   <div class="card">
     <div class="row">
@@ -38,12 +15,6 @@
               <img src={{product.imageURL}} width="260vh" height="280vh">
             </picture>
           </div>
-      <!-- <div class="img-small-wrap">
-            <div class="item-gallery"> <img src="https://s9.postimg.org/tupxkvfj3/image.jpg"> </div>
-            <div class="item-gallery"> <img src="https://s9.postimg.org/tupxkvfj3/image.jpg"> </div>
-            <div class="item-gallery"> <img src="https://s9.postimg.org/tupxkvfj3/image.jpg"> </div>
-            <div class="item-gallery"> <img src="https://s9.postimg.org/tupxkvfj3/image.jpg"> </div>
-          </div> -->
         </article>
       </aside>
       <aside class="col-sm-7">
@@ -60,55 +31,7 @@
             <dt>Category</dt>
             <dd><p>{{product.category}}</p></dd>
           </dl>
-          <!-- <dl class="param param-feature">
-            <dt>Model#</dt>
-            <dd>12345611</dd>
-          </dl> -->
-          <!-- <dl class="param param-feature">
-            <dt>Color</dt>
-            <dd>Black and white</dd>
-          </dl> -->
-          <!-- <dl class="param param-feature">
-            <dt>Delivery</dt>
-            <dd>Russia, USA, and Europe</dd>
-          </dl> -->
           <hr>
-          <!-- <div class="row">
-            <div class="col-sm-5">
-              <dl class="param param-inline">
-                <dt>Quantity: </dt>
-                <dd>
-                  <select class="form-control form-control-sm" style="width:70px;">
-                    <option> 1 </option>
-                    <option> 2 </option>
-                    <option> 3 </option>
-                  </select>
-                </dd>
-              </dl>
-            </div>
-            <div class="col-sm-7">
-              <dl class="param param-inline">
-                  <dt>Size: </dt>
-                  <dd>
-                    <label class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                    <span class="form-check-label">SM</span>
-                  </label>
-                  <label class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                    <span class="form-check-label">MD</span>
-                  </label>
-                  <label class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                    <span class="form-check-label">XXL</span>
-                  </label>
-                  </dd>
-              </dl>
-            </div>
-          </div>
-          <hr>
-          <a href="#" class="btn btn-lg btn-primary text-uppercase"> Buy now </a>
-          <a href="#" class="btn btn-lg btn-outline-primary text-uppercase"> <i class="fas fa-shopping-cart"></i> Add to cart </a> -->
         </article>
       </aside>
     </div>
@@ -127,7 +50,6 @@
       <div class="commentl">
         <p>
           {{question.question}}
-          <!-- <button *ngIf="belongsToThisSessionUser(product)" class="badge badge-warning align-self-end float-right" style="width: auto; margin: 5px;" -->
           <button *ngIf="question.answer == '' && belongsToThisSessionUser(product)" class="badge badge-warning align-self-end float-right" style="width: auto; margin: 5px;"
             (click)="answer(i)">
               Answer
@@ -142,9 +64,6 @@
     </div>
   </div>
 </div>
-
-
-
 
 <div style="clear: both;"></div>
 
