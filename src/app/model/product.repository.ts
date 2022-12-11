@@ -17,18 +17,7 @@ export class ProductRepository {
 
     //constructor
     constructor(private dataSource: RestDataSource) {
-        dataSource.getProducts().subscribe(data => {
-            for(let i = 0; i < data.length; i++ ){
-                if(!data[i].enable && !this.belongsToThisSessionUser(data[i])){
-                    continue;
-                }
-                this.products.push(data[i]);
-            }
-//            this.products = data;
-            this.categories = this.products.map(p => p.category)
-                .filter((c, index, array) => array.indexOf(c) == index).sort();
-        });
-        // console.log(this.products);
+        this.setProduct();
     }
 
     belongsToThisSessionUser(product: Product): boolean {
@@ -39,31 +28,15 @@ export class ProductRepository {
     //_CRUD
     //__Read methods
     getProducts(category: string = null): Product[] {
-        // console.log(this.products
-        //     .filter(p => category == null || category == p.category)
-        //     .sort((a, b) =>{return (a.title > b.title)? 1 : -1;}));
-        // console.log((new Error).stack);
-        // console.log(this.products);
-
-
         for(let i = 0; i< this.products.length; i++){
-            // console.log("---")
             if(this.products[i].expiryDate){
-                // console.log(product.expiryDate.toString());
-                // console.log(Date.parse(product.expiryDate.toString()));
                 this.expDateInt = Date.parse(this.products[i].expiryDate.toString());
                 if(this.expDateInt < this.currentDateInt){
-                    // console.log(this.products[i].title);
-                    // console.log("Expirado");
-                    // console.log(this.products[i].enable);
                     this.products[i].enable = false;
-                    // console.log(this.products[i].enable);
                 }
             }
             
         }
-
-
 
         return this.products
             .filter(p => category == null || category == p.category)
@@ -76,9 +49,6 @@ export class ProductRepository {
     setProduct(){
         let aux: Product[] = []; 
         this.listReady = false;
-        // this.products = [];
-        // console.log("---");
-        // console.log(this.products.length)
         this.dataSource.getProducts().subscribe(data => {
             for(let i = 0; i < data.length; i++ ){
                 if(!data[i].enable && !this.belongsToThisSessionUser(data[i])){
@@ -86,9 +56,9 @@ export class ProductRepository {
                 }
                 aux.push(data[i]);
             }
-            // console.log(data.length)
-            // console.log(this.products.length)
             this.products = aux;
+            this.categories = this.products.map(p => p.category)
+                .filter((c, index, array) => array.indexOf(c) == index).sort();
             this.listReady = true;
         });
     }
