@@ -17,40 +17,28 @@ export class ProductRepository {
 
     //constructor
     constructor(private dataSource: RestDataSource) {
-        dataSource.getProducts().subscribe(data => {
-            this.products = data;
-            this.categories = data.map(p => p.category)
-                .filter((c, index, array) => array.indexOf(c) == index).sort();
-        });
+        this.setProduct();
+    }
+
+    belongsToThisSessionUser(product: Product): boolean {
+        return (product.owner == this.dataSource.user_id);
+
     }
 
     //Methods
     //_CRUD
     //__Read methods
     getProducts(category: string = null): Product[] {
-        // console.log(this.products
-        //     .filter(p => category == null || category == p.category)
-        //     .sort((a, b) =>{return (a.title > b.title)? 1 : -1;}));
-
 
         for(let i = 0; i< this.products.length; i++){
-            // console.log("---")
             if(this.products[i].expiryDate){
-                // console.log(product.expiryDate.toString());
-                // console.log(Date.parse(product.expiryDate.toString()));
                 this.expDateInt = Date.parse(this.products[i].expiryDate.toString());
                 if(this.expDateInt < this.currentDateInt){
-                    // console.log(this.products[i].title);
-                    // console.log("Expirado");
-                    // console.log(this.products[i].enable);
                     this.products[i].enable = false;
-                    // console.log(this.products[i].enable);
                 }
             }
             
         }
-
-
 
         return this.products
             .filter(p => category == null || category == p.category)
@@ -63,7 +51,16 @@ export class ProductRepository {
     setProduct(){
         this.listReady = false;
         this.dataSource.getProducts().subscribe(data => {
-            this.products = data;
+            for(let i = 0; i < data.length; i++ ){
+                if(!data[i].enable && !this.belongsToThisSessionUser(data[i])){
+                    continue;
+                }
+                aux.push(data[i]);
+            }
+            this.products = aux;
+            this.categories = this.products.map(p => p.category)
+                .filter((c, index, array) => array.indexOf(c) == index).sort();
+
             this.listReady = true;
         });
     }
