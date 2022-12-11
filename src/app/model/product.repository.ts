@@ -22,12 +22,14 @@ export class ProductRepository {
 
     belongsToThisSessionUser(product: Product): boolean {
         return (product.owner == this.dataSource.user_id);
+
     }
 
     //Methods
     //_CRUD
     //__Read methods
     getProducts(category: string = null): Product[] {
+
         for(let i = 0; i< this.products.length; i++){
             if(this.products[i].expiryDate){
                 this.expDateInt = Date.parse(this.products[i].expiryDate.toString());
@@ -47,7 +49,6 @@ export class ProductRepository {
     }
 
     setProduct(){
-        let aux: Product[] = []; 
         this.listReady = false;
         this.dataSource.getProducts().subscribe(data => {
             for(let i = 0; i < data.length; i++ ){
@@ -59,6 +60,7 @@ export class ProductRepository {
             this.products = aux;
             this.categories = this.products.map(p => p.category)
                 .filter((c, index, array) => array.indexOf(c) == index).sort();
+
             this.listReady = true;
         });
     }
