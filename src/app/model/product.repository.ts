@@ -10,6 +10,9 @@ export class ProductRepository {
     //properties
     private products: Product[] = [];
     private categories: string[] = [];
+    private currentDate: Date = new Date();
+    private currentDateInt : number = Date.parse(this.currentDate.toString())
+    private expDateInt: number;
     listReady: boolean = false;
 
     //constructor
@@ -28,6 +31,27 @@ export class ProductRepository {
         // console.log(this.products
         //     .filter(p => category == null || category == p.category)
         //     .sort((a, b) =>{return (a.title > b.title)? 1 : -1;}));
+
+
+        for(let i = 0; i< this.products.length; i++){
+            // console.log("---")
+            if(this.products[i].expiryDate){
+                // console.log(product.expiryDate.toString());
+                // console.log(Date.parse(product.expiryDate.toString()));
+                this.expDateInt = Date.parse(this.products[i].expiryDate.toString());
+                if(this.expDateInt < this.currentDateInt){
+                    // console.log(this.products[i].title);
+                    // console.log("Expirado");
+                    // console.log(this.products[i].enable);
+                    this.products[i].enable = false;
+                    // console.log(this.products[i].enable);
+                }
+            }
+            
+        }
+
+
+
         return this.products
             .filter(p => category == null || category == p.category)
             .sort((a, b) =>{return (a.title > b.title)? 1 : -1;});
@@ -65,7 +89,8 @@ export class ProductRepository {
                 });
         }
     }
-    //__Create and update method
+
+    //__Question & Answer
     async sendQuestion(product: Product) {
         this.products.splice(this.products.findIndex((element)=>{element._id == product._id}), 1, product);
         // console.log("Res: " + product.questionAnswer[0].question);
@@ -74,14 +99,15 @@ export class ProductRepository {
                 console.log("repo message: " + response.message);
                 console.log("repo success: " + response.message);
             });
-
-
-
-
-
-        // this.dataSource.updateProduct(product)
-        //     .subscribe(response => {
-        //     });
+    }
+    async sendAnswer(product: Product, questionId: string, answerText: string) {
+        this.products.splice(this.products.findIndex((element)=>{element._id == product._id}), 1, product);
+        // console.log("Res: " + product.questionAnswer[0].question);
+        this.dataSource.sendAnswer(product._id, questionId, answerText)
+            .subscribe(response => {
+                console.log("repo message: " + response.message);
+                console.log("repo success: " + response.message);
+            });
     }
     //Delete
     deleteProduct(id: string) {
