@@ -49,6 +49,7 @@ export class ProductRepository {
     }
 
     setProduct(){
+        let aux: Product[] = [];
         this.listReady = false;
         this.dataSource.getProducts().subscribe(data => {
             for(let i = 0; i < data.length; i++ ){
