@@ -38,7 +38,7 @@
                   [routerLink]="['/advertisement', product._id]">
                   Ad details
                 </button> -->
-                <button *ngIf="belongsToThisSessionUser(product)" class="badge badge-warning align-self-end float-left"
+                <button *ngIf="belongsToThisSessionUser(product)" class="badge badge-warning align-self-end float-center"
                   style="width: auto; margin-right: 20px; font-size: 18px;"
                   [routerLink]="['/product/edit', product._id]">
                   Edit my Ad
