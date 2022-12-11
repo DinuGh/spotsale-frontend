@@ -23,9 +23,6 @@ export class RestDataSource {
 
   constructor(private http: HttpClient) {
 
-  //  this.baseUrl = "https://groupproject-comp229-2022.herokuapp.com/advertisement/";
-  // this.baseUrl = `${PROTOCOL}://orca-app-yod9h.ondigitalocean.app`;
-  //    this.baseUrl = `${PROTOCOL}://${location.hostname}:${PORT}/`;
   this.baseUrl=environment.apiUrl;
   }
 
@@ -47,9 +44,6 @@ export class RestDataSource {
       }));
   }
 
-  // saveProduct(product: Product): Observable<Product> {
-  //   return this.http.post<Product>(this.baseUrl + "add", product);
-  // }
 
   updateProduct(product: Product): Observable<ResponseModel> {
     return this.http.put<ResponseModel>(
@@ -93,9 +87,7 @@ export class RestDataSource {
     }),
       catchError(error => { return of(error.error) }));
   }
-  // updateProduct(product: Product): Observable<Product> {
-  //   return this.http.put<Product>(this.baseUrl + "edit/" + product._id, product);
-  // }
+
 
   deleteProduct(id: string): Observable<ResponseModel> {
     return this.http.delete<ResponseModel>(
@@ -106,10 +98,6 @@ export class RestDataSource {
   }),
   catchError(error => {return of(error.error)}));
 }
-
-  // deleteProduct(id: string): Observable<Product> {
-  //   return this.http.delete<Product>(this.baseUrl + "delete/" + id);
-  // }
 
   // User endpoint of the API
   authenticate(user: string, pass: string): Observable<ResponseModel> {

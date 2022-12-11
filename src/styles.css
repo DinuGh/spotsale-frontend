@@ -3,9 +3,8 @@
   IDs:         301208156, 301236904, 301251832, 301313468, 301268678
   Description: General style on top of bootstrap.
 */
-/* .d-inline{
-    margin: 5px 5px 5px 5px;
-} */
+
+
 h5 {
     text-align: center;
 }
@@ -23,7 +22,7 @@ background-color: rgb(255, 250, 250)
 .card-text {
     background-color: rgb(230, 230, 250);
     
-} */
+}
 
 .left-col .image {
     height: 106px;
@@ -37,9 +36,7 @@ background-color: rgb(255, 250, 250)
     position: relative;
     width: 200px;
 }
-/* div {
-    display: block;
-} */
+
 .right-col {
     float: right;
     height: 160px;
@@ -73,10 +70,6 @@ background-color: rgb(255, 250, 250)
     vertical-align: middle;
     width: 200px;
 }
- /* /* .left-col .image {
-    border: solid #d2d3d7 1px;
-} */
-
 
 .info {
     padding-left: 182px;
@@ -147,8 +140,6 @@ background-color: rgb(255, 250, 250)
     padding: 15px 15px 10px 0;
 }
 
-
-/* comments */
 .commentr {
     float:right;
     clear:both;

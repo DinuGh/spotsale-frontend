@@ -27,13 +27,7 @@ export class AuthGuard {
             this.router.navigateByUrl("/users/signin");
             return false;
         }
-        // if(route.params["mode"] == "edit"){
-        //     if(this.dataSource.user_id != this.repository.getProduct(route.params["id"]).owner){
-        //         console.log("Mane");
-        //     }else{
-        //         console.log("Ramiro");
-        //     }
-        // }
+
         return true;
     }
 }
