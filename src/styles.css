@@ -12,11 +12,13 @@ h5 {
 background-color: rgb(255, 250, 250)
 
 }
-
-.card-text {
+.card{
+    background-color: rgba(143, 158, 244, 0.3)!important;
+}
+/* .card-text {
     background-color: rgb(230, 230, 250);
     
-}
+} */
 
 .left-col .image {
     height: 106px;
@@ -86,7 +88,7 @@ div {
 .price {
     color: #1e954e;
     display: inline-block;
-    float: right;
+   
     font-size: 22px;
     font-weight: 700;
     padding: 0 0 0 30px;
