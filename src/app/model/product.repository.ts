@@ -18,10 +18,21 @@ export class ProductRepository {
     //constructor
     constructor(private dataSource: RestDataSource) {
         dataSource.getProducts().subscribe(data => {
-            this.products = data;
-            this.categories = data.map(p => p.category)
+            for(let i = 0; i < data.length; i++ ){
+                if(!data[i].enable && !this.belongsToThisSessionUser(data[i])){
+                    continue;
+                }
+                this.products.push(data[i]);
+            }
+//            this.products = data;
+            this.categories = this.products.map(p => p.category)
                 .filter((c, index, array) => array.indexOf(c) == index).sort();
         });
+        // console.log(this.products);
+    }
+
+    belongsToThisSessionUser(product: Product): boolean {
+        return (product.owner == this.dataSource.user_id);
     }
 
     //Methods
@@ -31,6 +42,8 @@ export class ProductRepository {
         // console.log(this.products
         //     .filter(p => category == null || category == p.category)
         //     .sort((a, b) =>{return (a.title > b.title)? 1 : -1;}));
+        // console.log((new Error).stack);
+        // console.log(this.products);
 
 
         for(let i = 0; i< this.products.length; i++){
@@ -61,9 +74,21 @@ export class ProductRepository {
     }
 
     setProduct(){
+        let aux: Product[] = []; 
         this.listReady = false;
+        // this.products = [];
+        // console.log("---");
+        // console.log(this.products.length)
         this.dataSource.getProducts().subscribe(data => {
-            this.products = data;
+            for(let i = 0; i < data.length; i++ ){
+                if(!data[i].enable && !this.belongsToThisSessionUser(data[i])){
+                    continue;
+                }
+                aux.push(data[i]);
+            }
+            // console.log(data.length)
+            // console.log(this.products.length)
+            this.products = aux;
             this.listReady = true;
         });
     }
