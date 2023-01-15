@@ -31,7 +31,7 @@ jobs:
       - run:
           name: Setup Google Cloud CLI
           command: |
-            echo $GCLOUD_SERVICE_KEY | gcloud auth activate-service-account --key-file=-
+            echo $GCLOUD_SERVICE_KEY | gcloud auth activate-service-account --key-file="C:\Users\Dinu-PC\Desktop\dinu-project-0d230696e33e.json"
             gcloud --quiet config set project spotsale-frontend
             gcloud --quiet config set compute/zone ${GOOGLE_COMPUTE_ZONE}
       - run:
