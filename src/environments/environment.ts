@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  apiUrl:"https://orca-app-yod9h.ondigitalocean.app"
+    // apiUrl:"https://orca-app-yod9h.ondigitalocean.app"
+    apiUrl:"https://seashell-app-djaus.ondigitalocean.app"
   // apiUrl:"http://localhost:3000/"
 };
 
